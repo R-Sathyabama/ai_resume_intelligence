@@ -85,8 +85,16 @@ def _ollama_response(resume_text, jd_text, missing_skills):
         response.raise_for_status()
         return response.json().get("response", "No response from Ollama.")
 
-    except Exception as e:
-        return f"❌ Ollama error: {str(e)}"
+    except requests.exceptions.ConnectionError:
+        return "⚠️ AI engine is not running. Start it using: `ollama serve`"
+
+    except requests.exceptions.Timeout:
+        return "⚠️ AI engine took too long to respond. Try again."
+
+    except requests.exceptions.RequestException as e:
+        return f"⚠️ AI request failed: {str(e)}"
+
+     
 
 
 # ==========================
