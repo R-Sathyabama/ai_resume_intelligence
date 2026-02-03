@@ -51,14 +51,17 @@ pip install -r requirements.txt
 
 Make sure Ollama is installed and running.
 
-Pull a lightweight model:
+Pull a lightweight model in one terminal:
+```
 ollama pull phi3:mini
+ollama serve
+```
 ### 5️⃣ Run the app
-```bash
+```bash in another terminal
 Copy code
 streamlit run app.py
 ```
-### 🔁 Switching to OpenAI (Optional)
+### 🔁 Switching to OpenAI (Optional)₹
 In core/ai_reasoner.py:
 
 ```python
@@ -92,3 +95,6 @@ This project focuses on **explainable AI**, showing *why* a resume matches a job
 ## 📄 License
 
 This project is intended for educational and portfolio purposes.
+
+## 📄 CHANGELOG.md 
+For release history and planned improvements.
